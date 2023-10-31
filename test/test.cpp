@@ -19,6 +19,12 @@ TEST(TriangleTests, testAreaWith333) //goint to pass
     EXPECT_NEAR(aTriangle->getArea(), 3.897, 0.001);
 }
 
+TEST(TriangleTests, testAreaWithSidesBeingDifferent) //goint to fail
+{
+    Triangle *aTriangle = new Triangle(3,3,2);
+    EXPECT_NEAR(aTriangle->getArea(), 2.828, 0.001);
+}
+
 TEST(TriangleTests, testClassWith333Negative) //goint to pass
 {
     
@@ -35,6 +41,18 @@ TEST(TriangleTests, testIsosceles333) //goint to pass
 {
     Triangle *aTriangle = new Triangle(3,3,3);
     EXPECT_TRUE(aTriangle->isIsosceles());
+}
+
+TEST(TriangleTests, testKindWithDifferentSides) // going to fail
+{
+    Triangle *aTriangle = new Triangle(4,3,2);
+    EXPECT_EQ(Triangle::Kind::SCALENE, aTriangle->getKind());
+}
+
+TEST(TriangleTests, testKind333) // going to fail
+{
+    Triangle *aTriangle = new Triangle(3,3,3);
+    EXPECT_EQ(Triangle::Kind::EQUILATERAL, aTriangle->getKind());
 }
 
 int runTests(int argc, char* argv[]) {
