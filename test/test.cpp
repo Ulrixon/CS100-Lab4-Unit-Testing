@@ -1,9 +1,3 @@
 #include "gtest/gtest.h"
-#include "../include/Triangle.h"
-using shapes::Triangle;
+#include "../include/Hailstone.h"
 
-
-TEST(TriangleTests, testPerimeter) {
-    Triangle *aTriangle = new Triangle(3,3,3);
-    EXPECT_EQ (aTriangle->getPerimeter(),9);
-}
