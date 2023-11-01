@@ -19,14 +19,14 @@ Triangle::Triangle(int side1, int side2, int side3)
 
 int
 Triangle::getPerimeter() const {
-  return side1 + side2 + side2;
+  return side1 + side2 + side2; //bug1
 }
 
 
 double
 Triangle::getArea() const {
   // Here we use Heron's formula to compute the area
-  double halfPerimeter = getPerimeter() / 2.0;
+  double halfPerimeter = getPerimeter() / 2.0; //bug2 because bug1
   double radicand = halfPerimeter
                     * (halfPerimeter - side1)
                     * (halfPerimeter - side2)
@@ -49,7 +49,7 @@ Triangle::isEquilateral() const {
 
 Triangle::Kind
 Triangle::getKind() const {
-  if (isIsosceles()) {
+  if (isIsosceles()) { //bug3 equilateral should test first
     return Kind::ISOSCELES;
   } else if (isEquilateral()) {
     return Kind::EQUILATERAL;
