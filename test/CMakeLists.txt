@@ -5,9 +5,11 @@ add_subdirectory(googletest)
 
 add_executable(runAllTests
 
-  test.cpp 
+  test_Award.cpp
+  test_hailstone.cpp
+  test_triangle.cpp
 )
 
 target_link_libraries(runAllTests gmock gtest gtest_main)
 target_link_libraries(runAllTests simpleLibrary)
-
+TARGET_COMPILE_DEFINITIONS(runAllTests PRIVATE gtest_disable_pthreads=ON)
